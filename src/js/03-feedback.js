@@ -10,8 +10,8 @@ formEl.addEventListener('input', throttle(onFormInput, 500));
 populateInput();
 
 function onFormInput(e) {
-    formData[e.target.name] = e.target.value;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  formData[e.target.name] = e.target.value;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 
 function onFormSubmit(e) {
@@ -29,6 +29,7 @@ function populateInput() {
   if (isFilledInput) {
     for (const key of Object.keys(isFilledInput)) {
       formEl.elements[key].value = isFilledInput[key];
+      formData[key] = isFilledInput[key];
     }
   }
 }
